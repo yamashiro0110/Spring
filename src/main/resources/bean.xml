@@ -2,11 +2,26 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd">
-       
+
+    <!-- DI config -->
     <bean id="bean1" class="test.SampleTestBean">
         <property name="message" value="Spring始めました！"/>
     </bean>
     <bean id="bean2" class="test.SampleTestBean">
-        <property name="message" value="Springハジメマシタ！"></property>
+        <property name="message" value="Springハジメマシタ！" />
+    </bean>
+
+    <!-- AOP config -->
+    <bean id="testAopBean" class="test.aop.TestAopBean">
+        <property name="message" value="this is AOP bean!" />
+    </bean>
+    <bean id="testAopAdvice" class="test.aop.TestAopAdvice" />
+    <bean id="proxyFactoryBean" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target" ref="testAopBean" />
+        <property name="interceptorNames">
+            <list>
+                <value>testAopAdvice</value>
+            </list>
+        </property>
     </bean>
 </beans>
