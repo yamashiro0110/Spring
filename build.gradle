@@ -37,6 +37,7 @@ dependencies {
     // spring
     compile "org.springframework:spring-core:$springVersion"
     compile "org.springframework:spring-context-support:$springVersion"
+    compile "org.springframework:spring-aop:$springVersion"
 
     // loggers
     compile "org.slf4j:slf4j-api:$slf4jVersion"
@@ -47,4 +48,6 @@ dependencies {
     compile "org.projectlombok:lombok:$lombokVersion"
     compile "com.google.guava:guava:$guavaVersion"
     compile "javax.mail:mail:$javaMailVersion"
+    compile 'org.aspectj:aspectjrt:1.+'
+    compile 'org.aspectj:aspectjweaver:1.+'
 }
